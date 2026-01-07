@@ -6,7 +6,7 @@
         <consumes_customized>false</consumes_customized>
         <default_version>No active default version</default_version>
         <doc_link/>
-        <enforce_acl>cf9d01d3e73003009d6247e603f6a990</enforce_acl>
+        <enforce_acl>c1321da6eb3d76105c06fcffcad0cd1c</enforce_acl>
         <is_versioned>false</is_versioned>
         <name>BudMod</name>
         <namespace>x_neyu_budmod_api</namespace>
@@ -18,13 +18,13 @@
         <sys_created_by>mih5164</sys_created_by>
         <sys_created_on>2025-09-15 13:51:06</sys_created_on>
         <sys_id>5c217ef02b0c7ed08a69f0dcce91bf95</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name>BudMod</sys_name>
         <sys_package display_value="BudMod Spoke" source="x_neyu_budmod_api">5a39ca322befaa50da0ef1bece91bfd2</sys_package>
         <sys_policy/>
         <sys_scope display_value="BudMod Spoke">5a39ca322befaa50da0ef1bece91bfd2</sys_scope>
         <sys_update_name>sys_ws_definition_5c217ef02b0c7ed08a69f0dcce91bf95</sys_update_name>
         <sys_updated_by>mih5164</sys_updated_by>
-        <sys_updated_on>2025-09-15 13:51:06</sys_updated_on>
+        <sys_updated_on>2025-12-16 17:16:07</sys_updated_on>
     </sys_ws_definition>
 </record_update>

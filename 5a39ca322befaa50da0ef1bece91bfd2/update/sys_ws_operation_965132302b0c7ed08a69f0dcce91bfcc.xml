@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ws_operation">
+    <sys_ws_operation action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <consumes>application/json,application/xml,text/xml</consumes>
+        <consumes_customized>false</consumes_customized>
+        <default_operation_uri/>
+        <enforce_acl>c1321da6eb3d76105c06fcffcad0cd1c</enforce_acl>
+        <http_method>POST</http_method>
+        <name>Create BudMod Case</name>
+        <operation_script><![CDATA[(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+
+ var responseBody = {};
+    var requestBody = request.body.data;
+
+    function getUserSysId(username) {
+        if (!username) return "";
+        var usr = new GlideRecord("sys_user");
+        usr.addQuery("user_name", username.trim());
+        usr.query();
+        if (usr.next()) {
+            return usr.sys_id.toString();
+        }
+        return "";
+    }
+
+    function getUserSysIdsFromUsernames(usernames) {
+        if (!usernames) return "";
+        var sysIds = [];
+        var userList = usernames.split(",");
+        for (var i = 0; i < userList.length; i++) {
+            var id = getUserSysId(userList[i]);
+            if (id) sysIds.push(id);
+        }
+        return sysIds.join(",");
+    }
+
+    // Validate mandatory field
+    if (!requestBody.user_entered) {
+        response.setStatus(400);
+        return {
+            status: "ERROR",
+            message: "Please include all mandatory fields (user_entered)."
+        };
+    }
+
+    try {
+        // sys_id of your Record Producer
+        var recordProducerSysId = "8ad978322bebaa50da0ef1bece91bf17";
+
+        // Build variables object
+        var variables = {
+            "budget_adj_nbr": requestBody.budget_adj_nbr,
+            "admin_unit_name": requestBody.admin_unit_name,
+            "fiscal_year": requestBody.fiscal_year,
+            "descr": requestBody.descr,
+            "approval_status": requestBody.approval_status,
+            "user": getUserSysId(requestBody.user_entered),   // converted to sys_id
+            "internal_user": getUserSysId(requestBody.user_requested), // converted to sys_id
+            "date_entered": requestBody.date_entered,
+            "date_requested": requestBody.date_requested,
+            "currency": requestBody.currency,
+            "one_time_adj_flag": requestBody.one_time_adj_flag,
+            "hdr_bu": requestBody.hdr_bu,
+            "ref_number": requestBody.ref_number,
+            "high_priority_flag": requestBody.high_priority_flag,
+            "is_position_budget": requestBody.is_position_budget,
+            "lvl1_approvers": getUserSysIdsFromUsernames(requestBody.approvers1_list),
+            "lvl2_approvers": getUserSysIdsFromUsernames(requestBody.approvers2_list),
+            "lvl3_approvers": getUserSysIdsFromUsernames(requestBody.approvers3_list),
+            "tracking_num": requestBody.tracking_num
+        };
+
+
+        // Create catalog item API
+        var catalogItem = new sn_sc.CatItem(recordProducerSysId);
+        var values = {
+            "variables": variables,
+            "sysparm_id": recordProducerSysId
+        };
+
+        // Submit producer and get created record
+        var targetRecordDetails = catalogItem.submitProducer(values);
+
+        responseBody.status = "SUCCESS";
+        responseBody.created_record = targetRecordDetails;
+
+    } catch (ex) {
+        response.setStatus(500);
+        responseBody.status = "ERROR";
+        responseBody.message = ex.message;
+    }
+
+    return responseBody;
+
+})(request, response);]]></operation_script>
+        <operation_uri>/api/x_neyu_budmod_api/budmod</operation_uri>
+        <produces>application/json,application/xml,text/xml</produces>
+        <produces_customized>false</produces_customized>
+        <relative_path>/</relative_path>
+        <request_example/>
+        <requires_acl_authorization>true</requires_acl_authorization>
+        <requires_authentication>true</requires_authentication>
+        <requires_snc_internal_role>true</requires_snc_internal_role>
+        <short_description/>
+        <sys_class_name>sys_ws_operation</sys_class_name>
+        <sys_created_by>mih5164</sys_created_by>
+        <sys_created_on>2025-09-15 13:55:04</sys_created_on>
+        <sys_id>965132302b0c7ed08a69f0dcce91bfcc</sys_id>
+        <sys_mod_count>11</sys_mod_count>
+        <sys_name>Create BudMod Case</sys_name>
+        <sys_package display_value="BudMod Spoke" source="x_neyu_budmod_api">5a39ca322befaa50da0ef1bece91bfd2</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BudMod Spoke">5a39ca322befaa50da0ef1bece91bfd2</sys_scope>
+        <sys_update_name>sys_ws_operation_965132302b0c7ed08a69f0dcce91bfcc</sys_update_name>
+        <sys_updated_by>mih5164</sys_updated_by>
+        <sys_updated_on>2025-12-16 17:16:59</sys_updated_on>
+        <web_service_definition display_value="BudMod">5c217ef02b0c7ed08a69f0dcce91bf95</web_service_definition>
+        <web_service_version/>
+    </sys_ws_operation>
+</record_update>

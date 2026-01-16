@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_neyu_budmod_api.BudmodAPI</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name>BudmodAPI</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[var BudmodAPI = Class.create();
+BudmodAPI.prototype = {
+    initialize: function() {},
+    /**
+     * Update Approval API Call
+     * 
+     * @param {Object} params - Parameters object containing:
+     *   - budgetAdjNbr: Budget adjustment number
+     *   - apprLevel: Approval level
+     *   - assignedAppr: Assigned approver
+     *   - serviceLinkId: ServicelinkId
+     *   - actionBy: Action performed by
+     *   - actionDate: Action date
+     *   - actionResult: Action result
+     *   - actionRemarks: Action remarks
+     * @param {String}
+     * @returns {Object} Response object with error, status, and responseBody
+     */
+    updateApproval: function(params) {
+        try {
+            // Validate required parameters
+            if (!params || !params.budgetAdjNbr || !params.serviceLinkId) {
+                return {
+                    error: true,
+                    errorMessage: 'Missing required parameters: budgetAdjNbr and serviceLinkId are required',
+                    status: '400',
+                    responseBody: null
+                };
+            }
+
+
+
+            // Prepare request body
+            var requestBody = {
+                budgetAdjNbr: params.budgetAdjNbr || '',
+                apprLevel: params.apprLevel || '',
+                assignedAppr: params.assignedAppr || '',
+                serviceLinkId: params.serviceLinkId || '',
+                actionBy: params.actionBy || '',
+                actionDate: params.actionDate || '',
+                actionResult: params.actionResult || '',
+                actionRemarks: params.actionRemarks || '',
+                remoteUser: 'sl_user'
+            };
+
+            // Create request configuration
+            var requestConfig = {
+                aliasId: '42bef7f42b00bed08a69f0dcce91bf90',
+                path: '/budmod/budservice/updateapproval',
+                httpMethod: 'POST',
+                content: JSON.stringify(requestBody),
+                headers: {
+                    'Content-Type': 'text/plain'
+                }
+            };
+
+            // Execute the REST call using REST Utils
+            return this._executeRestCall(requestConfig);
+
+        } catch (error) {
+            gs.error('BudmodAPI.updateApproval - Error: ' + error.message);
+            return {
+                error: true,
+                errorMessage: 'Internal error occurred: ' + error.message,
+                status: '500',
+                responseBody: null
+            };
+        }
+    },
+
+    /**
+     * FAME Status Check API Call
+     * 
+     * @param {Object} params - Parameters object containing:
+     *   - budgetAdjNbr: Budget adjustment number
+     *   - serviceLinkId: Service link ID
+     * @param {String} aliasId - Optional: Connection & Credential Alias sys_id (overrides default)
+     * @returns {Object} Response object with error, status, and responseBody
+     */
+    fameStatusCheck: function(params) {
+        try {
+            // Validate required parameters
+            if (!params || !params.budgetAdjNbr || !params.serviceLinkId) {
+                return {
+                    error: true,
+                    errorMessage: 'Missing required parameters: budgetAdjNbr and serviceLinkId are required',
+                    status: '400',
+                    responseBody: null
+                };
+            }
+
+            // Use provided aliasId or get from configuration
+
+
+            // Prepare request body
+            var requestBody = {
+                budgetAdjNbr: params.budgetAdjNbr || '',
+                serviceLinkId: params.serviceLinkId || '',
+                remoteUser: 'sl_user'
+            };
+
+            // Create request configuration
+            var requestConfig = {
+                aliasId: '42bef7f42b00bed08a69f0dcce91bf90',
+                path: '/budmod/budservice/famestatuscheck',
+                httpMethod: 'POST',
+                content: JSON.stringify(requestBody),
+                headers: {
+                    'Content-Type': 'text/plain'
+                }
+            };
+
+            // Execute the REST call using REST Utils
+            return this._executeRestCall(requestConfig);
+
+        } catch (error) {
+            gs.error('BudmodAPI.fameStatusCheck - Error: ' + error.message);
+            return {
+                error: true,
+                errorMessage: 'Internal error occurred: ' + error.message,
+                status: '500',
+                responseBody: null
+            };
+        }
+    },
+
+
+
+    /**
+     * Private method to execute REST calls using REST Utils
+     * 
+     * @param {Object} requestConfig - Request configuration object
+     * @returns {Object} Response object
+     */
+    _executeRestCall: function(requestConfig) {
+        try {
+            // Build the REST message using REST Utils RequestBuilder
+            // RequestBuilder will handle connection alias validation internally
+            var builder = new x_neyu_rest_utils.RequestBuilder(requestConfig);
+            var restMessage = builder.build();
+
+            if (!restMessage) {
+                return {
+                    error: true,
+                    errorMessage: 'Failed to build REST message',
+                    status: '500',
+                    responseBody: null
+                };
+            }
+
+            // Execute the REST message using REST Utils WebServiceUtil
+            var webServiceUtil = new x_neyu_rest_utils.WebServiceUtil();
+            var response = webServiceUtil.executeRestMessage(restMessage);
+
+            // Log the response for debugging
+            gs.info('BudmodAPI._executeRestCall - Response: ' + JSON.stringify(response));
+
+            return response;
+
+        } catch (error) {
+            gs.error('BudmodAPI._executeRestCall - Error executing REST call: ' + error.message);
+            return {
+                error: true,
+                errorMessage: 'Failed to execute REST call: ' + error.message,
+                status: '500',
+                responseBody: null
+            };
+        }
+    },
+
+
+    type: 'BudmodAPI'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>mih5164</sys_created_by>
+        <sys_created_on>2025-08-27 19:41:37</sys_created_on>
+        <sys_id>fe594e322befaa50da0ef1bece91bf94</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>BudmodAPI</sys_name>
+        <sys_package display_value="BudMod Spoke" source="x_neyu_budmod_api">5a39ca322befaa50da0ef1bece91bfd2</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="BudMod Spoke">5a39ca322befaa50da0ef1bece91bfd2</sys_scope>
+        <sys_update_name>sys_script_include_fe594e322befaa50da0ef1bece91bf94</sys_update_name>
+        <sys_updated_by>mih5164</sys_updated_by>
+        <sys_updated_on>2025-11-12 16:00:28</sys_updated_on>
+    </sys_script_include>
+</record_update>

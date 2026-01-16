@@ -5,6 +5,7 @@
         <description/>
         <elevated_privilege>false</elevated_privilege>
         <encryption_context/>
+        <federated_id>JZViGC0r+IfoeGSdchQhgEWsMGeVjFShRsBjHMnMAq4=</federated_id>
         <grantable>true</grantable>
         <includes_roles/>
         <name>x_neyu_budmod_api.budmod_api_user</name>

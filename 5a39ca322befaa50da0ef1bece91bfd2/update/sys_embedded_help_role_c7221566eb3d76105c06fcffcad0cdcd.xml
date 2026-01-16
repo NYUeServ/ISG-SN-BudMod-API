@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_embedded_help_role">
+    <sys_embedded_help_role action="INSERT_OR_UPDATE">
+        <order>1000</order>
+        <role display_value="x_neyu_budmod_api.budmod_api_user" name="x_neyu_budmod_api.budmod_api_user">82125166eb3d76105c06fcffcad0cdbd</role>
+        <sys_class_name>sys_embedded_help_role</sys_class_name>
+        <sys_created_by>mih5164</sys_created_by>
+        <sys_created_on>2025-12-16 17:14:51</sys_created_on>
+        <sys_id>c7221566eb3d76105c06fcffcad0cdcd</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>82125166eb3d76105c06fcffcad0cdbd</sys_name>
+        <sys_package display_value="BudMod Spoke" source="x_neyu_budmod_api">5a39ca322befaa50da0ef1bece91bfd2</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BudMod Spoke">5a39ca322befaa50da0ef1bece91bfd2</sys_scope>
+        <sys_update_name>sys_embedded_help_role_c7221566eb3d76105c06fcffcad0cdcd</sys_update_name>
+        <sys_updated_by>mih5164</sys_updated_by>
+        <sys_updated_on>2025-12-16 17:14:51</sys_updated_on>
+    </sys_embedded_help_role>
+</record_update>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties_category_m2m">
+    <sys_properties_category_m2m action="INSERT_OR_UPDATE">
+        <category display_value="BudMod Spoke Properties">7b8485c72b1bb2108a69f0dcce91bfc4</category>
+        <order>1</order>
+        <property display_value="x_neyu_budmod_api.debug" name="x_neyu_budmod_api.debug">f7fc744f2bd7b2108a69f0dcce91bf30</property>
+        <sys_class_name>sys_properties_category_m2m</sys_class_name>
+        <sys_created_by>mih5164</sys_created_by>
+        <sys_created_on>2026-03-02 19:08:36</sys_created_on>
+        <sys_id>aa0505872b1bb2108a69f0dcce91bf9b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_neyu_budmod_api.debug.BudMod Spoke Properties</sys_name>
+        <sys_package display_value="BudMod Spoke" source="x_neyu_budmod_api">5a39ca322befaa50da0ef1bece91bfd2</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BudMod Spoke">5a39ca322befaa50da0ef1bece91bfd2</sys_scope>
+        <sys_update_name>sys_properties_category_m2m_aa0505872b1bb2108a69f0dcce91bf9b</sys_update_name>
+        <sys_updated_by>mih5164</sys_updated_by>
+        <sys_updated_on>2026-03-02 19:08:36</sys_updated_on>
+    </sys_properties_category_m2m>
+</record_update>

@@ -7,10 +7,14 @@
         <enforce_acl>c1321da6eb3d76105c06fcffcad0cd1c</enforce_acl>
         <http_method>POST</http_method>
         <name>Create BudMod Case</name>
-        <operation_script><![CDATA[(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+        <operation_script><![CDATA[(function process( /*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
 
- var responseBody = {};
+    var responseBody = {};
     var requestBody = request.body.data;
+    var debug = gs.getProperty("x_neyu_budmod_api", "false") == "true";
+    if (debug) {
+        gs.info("BudMod RequestBody: " + JSON.stringify(requestBody));
+    }
 
     function getUserSysId(username) {
         if (!username) return "";
@@ -54,7 +58,7 @@
             "fiscal_year": requestBody.fiscal_year,
             "descr": requestBody.descr,
             "approval_status": requestBody.approval_status,
-            "user": getUserSysId(requestBody.user_entered),   // converted to sys_id
+            "user": getUserSysId(requestBody.user_entered), // converted to sys_id
             "internal_user": getUserSysId(requestBody.user_requested), // converted to sys_id
             "date_entered": requestBody.date_entered,
             "date_requested": requestBody.date_requested,
@@ -67,7 +71,8 @@
             "lvl1_approvers": getUserSysIdsFromUsernames(requestBody.approvers1_list),
             "lvl2_approvers": getUserSysIdsFromUsernames(requestBody.approvers2_list),
             "lvl3_approvers": getUserSysIdsFromUsernames(requestBody.approvers3_list),
-            "tracking_num": requestBody.tracking_num
+            "tracking_num": requestBody.tracking_num,
+			"link": requestBody.link || ""
         };
 
 
@@ -106,14 +111,14 @@
         <sys_created_by>mih5164</sys_created_by>
         <sys_created_on>2025-09-15 13:55:04</sys_created_on>
         <sys_id>965132302b0c7ed08a69f0dcce91bfcc</sys_id>
-        <sys_mod_count>11</sys_mod_count>
+        <sys_mod_count>16</sys_mod_count>
         <sys_name>Create BudMod Case</sys_name>
         <sys_package display_value="BudMod Spoke" source="x_neyu_budmod_api">5a39ca322befaa50da0ef1bece91bfd2</sys_package>
         <sys_policy/>
         <sys_scope display_value="BudMod Spoke">5a39ca322befaa50da0ef1bece91bfd2</sys_scope>
         <sys_update_name>sys_ws_operation_965132302b0c7ed08a69f0dcce91bfcc</sys_update_name>
         <sys_updated_by>mih5164</sys_updated_by>
-        <sys_updated_on>2025-12-16 17:16:59</sys_updated_on>
+        <sys_updated_on>2026-03-02 20:07:10</sys_updated_on>
         <web_service_definition display_value="BudMod">5c217ef02b0c7ed08a69f0dcce91bf95</web_service_definition>
         <web_service_version/>
     </sys_ws_operation>

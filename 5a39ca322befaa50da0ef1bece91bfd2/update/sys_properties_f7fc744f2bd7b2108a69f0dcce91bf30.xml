@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties">
+    <sys_properties action="INSERT_OR_UPDATE">
+        <choices/>
+        <description/>
+        <ignore_cache>true</ignore_cache>
+        <is_private>false</is_private>
+        <name>x_neyu_budmod_api.debug</name>
+        <read_roles/>
+        <suffix>debug</suffix>
+        <sys_class_name>sys_properties</sys_class_name>
+        <sys_created_by>mih5164</sys_created_by>
+        <sys_created_on>2026-03-02 18:42:37</sys_created_on>
+        <sys_id>f7fc744f2bd7b2108a69f0dcce91bf30</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_neyu_budmod_api.debug</sys_name>
+        <sys_package display_value="BudMod Spoke" source="x_neyu_budmod_api">5a39ca322befaa50da0ef1bece91bfd2</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BudMod Spoke">5a39ca322befaa50da0ef1bece91bfd2</sys_scope>
+        <sys_update_name>sys_properties_f7fc744f2bd7b2108a69f0dcce91bf30</sys_update_name>
+        <sys_updated_by>mih5164</sys_updated_by>
+        <sys_updated_on>2026-03-02 18:42:37</sys_updated_on>
+        <type>boolean</type>
+        <value>true</value>
+        <write_roles/>
+    </sys_properties>
+    <sys_translated_text action="delete_multiple" query="documentkey=f7fc744f2bd7b2108a69f0dcce91bf30"/>
+</record_update>

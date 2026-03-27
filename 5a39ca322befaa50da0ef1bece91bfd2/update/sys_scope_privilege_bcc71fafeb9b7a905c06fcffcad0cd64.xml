@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_scope_privilege">
+    <sys_scope_privilege action="INSERT_OR_UPDATE">
+        <operation>execute</operation>
+        <source_scope display_value="BudMod Spoke">5a39ca322befaa50da0ef1bece91bfd2</source_scope>
+        <status>allowed</status>
+        <sys_class_name>sys_scope_privilege</sys_class_name>
+        <sys_created_by>nyu10256</sys_created_by>
+        <sys_created_on>2026-03-04 19:06:37</sys_created_on>
+        <sys_id>bcc71fafeb9b7a905c06fcffcad0cd64</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Glide API: properties</sys_name>
+        <sys_package display_value="BudMod Spoke" source="x_neyu_budmod_api">5a39ca322befaa50da0ef1bece91bfd2</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BudMod Spoke">5a39ca322befaa50da0ef1bece91bfd2</sys_scope>
+        <sys_update_name>sys_scope_privilege_bcc71fafeb9b7a905c06fcffcad0cd64</sys_update_name>
+        <sys_updated_by>nyu10256</sys_updated_by>
+        <sys_updated_on>2026-03-04 19:06:37</sys_updated_on>
+        <target_name>Glide API: properties</target_name>
+        <target_scope display_value="Global">global</target_scope>
+        <target_type>scriptable</target_type>
+    </sys_scope_privilege>
+</record_update>
